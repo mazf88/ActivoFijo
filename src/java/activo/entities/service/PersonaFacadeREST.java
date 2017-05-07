@@ -1,6 +1,6 @@
 package activo.entities.service;
 
-import activo.entities.Area;
+import activo.entities.Persona;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -19,26 +19,26 @@ import javax.ws.rs.Produces;
  * @author Mazf
  */
 @Stateless
-@Path("activo.entities.area")
-public class AreaFacadeREST extends AbstractFacade<Area> {
+@Path("activo.entities.persona")
+public class PersonaFacadeREST extends AbstractFacade<Persona> {
     @PersistenceContext(unitName = "ActivoFijoPU")
     private EntityManager em;
 
-    public AreaFacadeREST() {
-        super(Area.class);
+    public PersonaFacadeREST() {
+        super(Persona.class);
     }
 
     @POST
     @Override
     @Consumes({"application/xml", "application/json"})
-    public void create(Area entity) {
+    public void create(Persona entity) {
         super.create(entity);
     }
 
     @PUT
     @Path("{id}")
     @Consumes({"application/xml", "application/json"})
-    public void edit(@PathParam("id") Integer id, Area entity) {
+    public void edit(@PathParam("id") Integer id, Persona entity) {
         super.edit(entity);
     }
 
@@ -51,14 +51,14 @@ public class AreaFacadeREST extends AbstractFacade<Area> {
     @GET
     @Path("{id}")
     @Produces({"application/xml", "application/json"})
-    public Area find(@PathParam("id") Integer id) {
+    public Persona find(@PathParam("id") Integer id) {
         return super.find(id);
     }
 
     @GET
     @Override
     @Produces({"application/xml", "application/json"})
-    public List<Area> findAll() {
+    public List<Persona> findAll() {
         return super.findAll();
     }
 

@@ -15,7 +15,7 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 
 /**
- *
+ * Clase con la implementacion de metodos a nivel de base de datos.
  * @author Mazf
  */
 @Stateless
