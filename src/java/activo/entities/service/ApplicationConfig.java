@@ -4,7 +4,7 @@ import java.util.Set;
 import javax.ws.rs.core.Application;
 
 /**
- * Clase que adiciona las clases recursos a la aplicacion
+ * Clase que adiciona las clases recursos a la aplicacion.
  * @author Mazf
  */
 @javax.ws.rs.ApplicationPath("webresources")
