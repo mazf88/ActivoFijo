@@ -5,7 +5,7 @@ import javax.ws.rs.core.Application;
 
 /**
  * Clase que adiciona las clases recursos a la aplicacion.
- * @author Mazf
+ * @author Mazf.
  */
 @javax.ws.rs.ApplicationPath("webresources")
 public class ApplicationConfig extends Application {
