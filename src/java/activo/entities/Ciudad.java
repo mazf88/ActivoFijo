@@ -6,20 +6,16 @@
 package activo.entities;
 
 import java.io.Serializable;
-import java.util.Collection;
 import javax.persistence.Basic;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -31,7 +27,7 @@ import javax.xml.bind.annotation.XmlTransient;
 @NamedQueries({
     @NamedQuery(name = "Ciudad.findAll", query = "SELECT c FROM Ciudad c"),
     @NamedQuery(name = "Ciudad.findByIdCiudad", query = "SELECT c FROM Ciudad c WHERE c.idCiudad = :idCiudad"),
-    @NamedQuery(name = "Ciudad.findByNombre", query = "SELECT c FROM Ciudad c WHERE c.nombre = :nombre")})
+    @NamedQuery(name = "Ciudad.findByNombreCiudad", query = "SELECT c FROM Ciudad c WHERE c.nombreCiudad = :nombreCiudad")})
 public class Ciudad implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
@@ -42,10 +38,8 @@ public class Ciudad implements Serializable {
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 30)
-    @Column(name = "nombre")
-    private String nombre;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idCiudad")
-    private Collection<Area> areaCollection;
+    @Column(name = "nombre_ciudad")
+    private String nombreCiudad;
 
     public Ciudad() {
     }
@@ -54,9 +48,9 @@ public class Ciudad implements Serializable {
         this.idCiudad = idCiudad;
     }
 
-    public Ciudad(Integer idCiudad, String nombre) {
+    public Ciudad(Integer idCiudad, String nombreCiudad) {
         this.idCiudad = idCiudad;
-        this.nombre = nombre;
+        this.nombreCiudad = nombreCiudad;
     }
 
     public Integer getIdCiudad() {
@@ -67,21 +61,12 @@ public class Ciudad implements Serializable {
         this.idCiudad = idCiudad;
     }
 
-    public String getNombre() {
-        return nombre;
+    public String getNombreCiudad() {
+        return nombreCiudad;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    @XmlTransient
-    public Collection<Area> getAreaCollection() {
-        return areaCollection;
-    }
-
-    public void setAreaCollection(Collection<Area> areaCollection) {
-        this.areaCollection = areaCollection;
+    public void setNombreCiudad(String nombreCiudad) {
+        this.nombreCiudad = nombreCiudad;
     }
 
     @Override
