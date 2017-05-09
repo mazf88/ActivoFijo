@@ -13,6 +13,7 @@ import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
 
 /**
  * Clase con la implementacion de metodos a nivel de base de datos.
@@ -30,14 +31,14 @@ public class AreaFacadeREST extends AbstractFacade<Area> {
 
     @POST
     @Override
-    @Consumes({"application/xml", "application/json"})
+    @Consumes({ MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON })
     public void create(Area entity) {
         super.create(entity);
     }
 
     @PUT
     @Path("{id}")
-    @Consumes({"application/xml", "application/json"})
+    @Consumes({ MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON })
     public void edit(@PathParam("id") Integer id, Area entity) {
         super.edit(entity);
     }
@@ -50,14 +51,14 @@ public class AreaFacadeREST extends AbstractFacade<Area> {
 
     @GET
     @Path("{id}")
-    @Produces({"application/xml", "application/json"})
+    @Produces({ MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON })
     public Area find(@PathParam("id") Integer id) {
         return super.find(id);
     }
 
     @GET
     @Override
-    @Produces({"application/xml", "application/json"})
+    @Produces({ MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON })
     public List<Area> findAll() {
         return super.findAll();
     }
